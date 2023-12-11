@@ -16,7 +16,6 @@ public class ProfileManager extends Feature {
         String oldPseudo = app.user.getName();
         app.server.setPseudo(oldPseudo, command[1]);
         app.user.setPseudo(command[1]);
-        Terminal.terminalInfo(app.user.getName(),oldPseudo+" has been renamed into "+command[1]);
     }
 
     public void showProfileName(App app, String[] command) {

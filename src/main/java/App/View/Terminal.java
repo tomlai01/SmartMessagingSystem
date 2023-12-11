@@ -21,26 +21,30 @@ public class Terminal {
         terminalInfo("Controller",info);
     }
 
-    static public void waitingForCommand() {
-        String info =
-                "Waiting for command ...\n" +
-                "Type help to get the possible commands.";
-        terminalInfo("Controller",info);
-    }
-
     static public void helpInfo() {
         String info =
                 "- setProfileName <profileName> : set your profile name\n" +
                 "- showProfileName : show your profile name\n" +
                 "- addContacts <contactName> ... <contactNameN> : add contacts in your contact list\n" +
                 "- removeContacts <contactName1> ... <contactNameN> : remove contacts from your contact list\n" +
-                "- createDiscussion <participant1> ... <participantN> : create a new discussion\n" +
-                "- leaveConversation <discussionName> : leave a conversation\n" +
-                "- addParticipants <discussionName> <participant1> ... <participantN> : add participants in a discussion\n" +
-                "- removeParticipants <discussionName> <participant1> ... <participantN> : remove participants from a discussion\n" +
-                "- showDiscussionList : show the list of you discussions\n" +
-                "- sendMessage <discussionName> <type> <message> : show the list of you discussions\n" +
-                "- renameConversation <discussionName> <newName> : rename a conversation\n" +
+                "- muteContacts <contactName1> ... <contactNameN> : mute contacts from your contact list; you don't receive notification anymore from them\n" +
+                "- unmuteContacts <contactName1> ... <contactNameN> : unmute contacts previously muted\n" +
+                "- blockContacts <contactName1> ... <contactNameN> : block contacts from your contact list; these contacts are muted and can't create conversation with you\n" +
+                "- unblockContacts <contactName1> ... <contactNameN> : unblock contacts previously blocked\n" +
+                "- createConversation <participant1> ... <participantN> : create a new conversation\n" +
+                "- leaveConversation <conversationName> : leave a conversation\n" +
+                "- muteConveration <conversationName> : mute the conversation; you don't receive notification anymore from this conversation\n" +
+                "- unmuteConveration <conversationName> : unmute the conversation previously muted\n" +
+                "- addParticipants <conversationName> <participant1> ... <participantN> : add participants in a conversation\n" +
+                "- removeParticipants <conversationName> <participant1> ... <participantN> : remove participants from a conversation\n" +
+                "- showConversationList : show the list of you conversations\n" +
+                "- sendMessage <conversationName> <type> <message> : show the list of you conversations\n" +
+                "- renameConversation <conversationName> <newName> : rename a conversation\n" +
+                "- activateRing : active ring\n" +
+                "- disableRing : disable ring\n" +
+                "- activateVibrator : disable vibrator\n" +
+                "- disableVibrator : disable vibrator\n" +
+                "- mute : mute the app\n" +
                 "- quit : quit the application";
         terminalInfo("Controller",info);
     }

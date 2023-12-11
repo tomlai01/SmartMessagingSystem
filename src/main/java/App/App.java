@@ -2,6 +2,9 @@ package App;
 
 import App.Controller.Controller;
 import App.Controller.TerminalController;
+import App.Feature.ActivableFeature.Mute;
+import App.Feature.ActivableFeature.Ring;
+import App.Feature.ActivableFeature.Vibrator;
 import App.Feature.*;
 import App.Utils.Conversation;
 import App.Utils.Message;
@@ -23,7 +26,11 @@ public class App {
     public ConversationSearch conversationSearch = new ConversationSearch(this);
     public ContactManager contactManager = new ContactManager(this);
     public ContactSearch contactSearch = new ContactSearch(this);
-    public NotificationManager notificationManager = new NotificationManager(this);
+    public NetworkManager networkManager = new NetworkManager(this);
+    //Activable features
+    public Ring ring = new Ring(this);
+    public Vibrator vibrator = new Vibrator(this);
+    public Mute mute = new Mute(this);
 
     public App(Server server){
         this.server = server;
@@ -59,27 +66,26 @@ public class App {
         //create a conversation
         HashSet<Profile> participants = new HashSet<>(profiles.values());
         Conversation conversation = new Conversation(participants);
-        Message message1 =  new Message(profile1, new Timestamp(System.currentTimeMillis()), "txt", "Welcome in this new conversation");
+        Message message1 =  new Message(profile1, new Timestamp(System.currentTimeMillis()), "Welcome in this new conversation");
         conversation.addMessage(message1);
-            Message message2 =  new Message(profile2, new Timestamp(System.currentTimeMillis()+1000000), "txt", "Hi bro, thank you!");
+            Message message2 =  new Message(profile2, new Timestamp(System.currentTimeMillis()+1000000),"Hi bro, thank you!");
         conversation.addMessage(message2);
-
         //put the conversation in the profiles
         HashMap<Profile, HashSet<Conversation>> conversations = new HashMap<>();
-        //put conversation in the first profile
+
         HashSet<Conversation> conversationsList01 = new HashSet<>();
         conversationsList01.add(conversation);
         conversations.put(profiles.get("01"), conversationsList01);
-        //put conversation in the second profile
         HashSet<Conversation> conversationsList02 = new HashSet<>();
         conversationsList02.add(conversation);
         conversations.put(profiles.get("02"), conversationsList02);
-        //put conversation in the third profile
         HashSet<Conversation> conversationsList03 = new HashSet<>();
         conversationsList03.add(conversation);
         conversations.put(profiles.get("03"), conversationsList03);
 
+        //create server
         Server server = new Server(conversations, profiles);
+
         App app = new App(server);
         app.run();
 

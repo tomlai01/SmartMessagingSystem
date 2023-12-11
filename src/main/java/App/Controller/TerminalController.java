@@ -43,6 +43,18 @@ public class TerminalController extends Controller{
                 case "removeContact":
                     app.contactManager.removeContacts(app, command);
                     break;
+                case "muteContacts":
+                    app.contactManager.muteContacts(app, command);
+                    break;
+                case "unmuteContacts":
+                    app.contactManager.unmuteContacts(app, command);
+                    break;
+                case "blockContacts":
+                    app.contactManager.blockContacts(app, command);
+                    break;
+                case "unblockContacts":
+                    app.contactManager.unblockContacts(app, command);
+                    break;
                 case "showContactList":
                     app.contactManager.showContactList(app, command);
                     break;
@@ -67,9 +79,33 @@ public class TerminalController extends Controller{
                 case "readConversation":
                     app.conversationManager.readConversation(app, command);
                     break;
-//                case "sendMessage":
-//                    Commands.sendMessage(app, command);
-//                    break;
+                case "muteConversation":
+                    app.conversationManager.muteConversation(app, command);
+                    break;
+                case "unmuteConversation":
+                    app.conversationManager.unmuteConversation(app, command);
+                    break;
+                case "activateRing":
+                    app.ring.activate();
+                    break;
+                case "disableRing":
+                    app.ring.disable();
+                    break;
+                case "activateVibrator":
+                    app.vibrator.activate();
+                    break;
+                case "disableVibrator":
+                    app.vibrator.disable();
+                    break;
+                case "mute":
+                    app.mute.activate();
+                    break;
+                case "sendMessage":
+                    app.networkManager.sendMessage(app, command);
+                    break;
+                case "otherAppSendMessage":
+                    app.server.simulation(app, command);
+                    break;
                 case "quit":
                     quit = true;
                     break;

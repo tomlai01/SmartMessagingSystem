@@ -3,9 +3,11 @@ package App.Feature;
 import App.App;
 
 public abstract class Feature {
-    App app;
+    protected App app;
 
-    Feature(App app) {
+    protected Feature(App app) {
         this.app = app;
     }
+
+
 }

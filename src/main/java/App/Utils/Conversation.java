@@ -8,6 +8,9 @@ public class Conversation {
     public HashSet<Profile> participants;
     ArrayList<Message> messages = new ArrayList<>();
 
+    public Conversation(){
+        this.participants = new HashSet<>();
+    }
     public Conversation(HashSet<Profile> participants) {
         this.participants = participants;
     }

@@ -5,17 +5,16 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Message {
-    Profile sender;
+    public Profile sender;
     Timestamp timestamp;
-    String type;
-    String content;
+    public String content;
 
-    public Message(Profile sender, Timestamp timestamp, String type, String content) {
+    public Message(Profile sender, Timestamp timestamp, String content) {
         this.sender = sender;
         this.timestamp = timestamp;
-        this.type = type;
         this.content = content;
     }
+
 
     @Override
     public String toString() {

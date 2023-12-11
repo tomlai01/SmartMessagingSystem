@@ -4,27 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d1ee6e1-a450-4e26-8f9b-cce2efe8a761" name="Changes" comment="Start of project">
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Controller/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Feature/ConversationManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Feature/ProfileManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/View/Terminal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Server/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Server/Terminal.java" afterDir="false" />
+    <list default="true" id="4d1ee6e1-a450-4e26-8f9b-cce2efe8a761" name="Changes" comment="Functional project V1">
+      <change afterPath="$PROJECT_DIR$/src/main/java/App/Feature/ActivableFeature/ActivableFeature.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/App/Feature/ActivableFeature/Mute.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/App/Feature/ActivableFeature/Ring.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/App/Feature/ActivableFeature/Vibrator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/App/Feature/ActivableFeature/VoiceReading.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/App/Utils/Packet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/Controller/TerminalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Controller/TerminalController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App/Feature/ContactManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Feature/ContactManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Feature/ContactSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Feature/ContactSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Feature/DiscussionManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Feature/DiscussionSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Feature/ConversationSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Feature/NotificationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Feature/NotificationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Terminal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Utils/Discussion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Utils/Conversation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/Feature/ConversationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Feature/ConversationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/Feature/Feature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Feature/Feature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/Feature/NotificationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Feature/NetworkManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/Feature/ProfileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Feature/ProfileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/Utils/Conversation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Utils/Conversation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App/Utils/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Utils/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Utils/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Utils/Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Commands/Commands.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/TerminalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Controller/TerminalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/View/Terminal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/View/Terminal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,24 +139,28 @@
       <option name="project" value="LOCAL" />
       <updated>1702183507737</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Final Structure">
+      <created>1702262933040</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1702262933040</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Start of project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start of project" />
+    <MESSAGE value="Final Structure" />
+    <MESSAGE value="Functional project V1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Functional project V1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/App/Controller/TerminalController.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Server/Server.java</url>
-          <line>56</line>
+          <line>66</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>

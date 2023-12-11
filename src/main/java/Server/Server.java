@@ -3,8 +3,11 @@ package Server;
 import App.App;
 import App.Utils.Conversation;
 import App.Utils.Message;
+import App.Utils.Packet;
 import App.Utils.Profile;
 
+import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -12,20 +15,26 @@ public class Server {
 
     HashMap<Profile, HashSet<Conversation>> conversations;
     HashMap<String, Profile> profiles;
-    HashMap<Profile, App> apps = new HashMap<>();
+    HashMap<Profile, App> apps;
 
     public Server() {
         conversations = new HashMap<>();
         profiles = new HashMap<>();
+        apps = new HashMap<>();
     }
 
     public Server(HashMap<Profile, HashSet<Conversation>> conversations, HashMap<String, Profile> profiles) {
         this.conversations = conversations;
         this.profiles = profiles;
+        apps = new HashMap<>();
     }
 
     public Profile getProfile(String name) {
         return profiles.get(name);
+    }
+
+    public void addApps(HashMap<Profile, App> apps) {
+        this.apps.putAll(apps);
     }
 
     public Profile connect(String phoneNumber, App app) {
@@ -37,6 +46,7 @@ public class Server {
             conversations.put(profile, new HashSet<>());
             return profiles.get(phoneNumber);
         }
+        apps.put(profiles.get(phoneNumber), app);
         Terminal.serverInfo("Profile "+phoneNumber+" connected");
         return profiles.get(phoneNumber);
     }
@@ -65,7 +75,6 @@ public class Server {
         for (Profile contact:contacts) {
             contact.addContacts(newContact);
         }
-        //TODO notify contacts
     }
 
     public void removeContact(Profile remover, HashSet<Profile> contacts) {
@@ -74,12 +83,39 @@ public class Server {
         for (Profile contact:contacts) {
             contact.removeContacts(newContact);
         }
-        //TODO notify contacts
     }
 
-    public void deliverMessage(Conversation conversation, Message message) {
-        for (Profile participant:conversation.participants) {
-            apps.get(participant).notificationManager.notify(conversation, message);
+    public void deliverMessage(Packet packet) {
+        Terminal.serverInfo("Delivery of message from "+packet.message.sender+" to the participants of the conversation "+packet.conversation.getName());
+        for (Profile participant:packet.conversation.participants) {
+            for (Conversation conversation: conversations.get(participant)) {
+                if (conversation.equals(packet.conversation)) {
+                    conversation.addMessage(packet.message);
+                }
+            }
+            App app = apps.getOrDefault(participant, null);
+            if (app != null) {
+                apps.get(participant).networkManager.handlePacket(packet);
+            }
         }
+    }
+
+    public void simulation(App app, String[] command){
+        if (command.length < 4) {
+            Terminal.serverInfo("sendMessage command requires the conversation and the message to send");
+            return;
+        }
+        Profile profile = getProfile(command[1]);
+        if (profile == null) {
+            Terminal.serverInfo("There is no profile named "+command[1]);
+            return;
+        }
+        Conversation conversation = app.conversationSearch.getConversation(command[2]);
+        if (conversation== null) {
+            Terminal.serverInfo("You don't have conversation named "+command[2]);
+            return;
+        }
+        Message message = new Message(profile, new Timestamp(System.currentTimeMillis()), String.join(" ", Arrays.copyOfRange(command,2,command.length)));
+        deliverMessage(new Packet(conversation, message));
     }
 }
