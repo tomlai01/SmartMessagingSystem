@@ -17,6 +17,9 @@ public class Ring extends ActivableFeature{
 
     @Override
     public void apply(String information) {
-        System.out.println("----- "+app.user.getName()+" RINGING -----");
+        if (activate) {
+            System.out.println("----- "+app.user.getName()+" RINGING -----");
+        }
     }
+
 }

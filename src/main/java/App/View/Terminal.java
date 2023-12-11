@@ -33,6 +33,7 @@ public class Terminal {
                 "- unblockContacts <contactName1> ... <contactNameN> : unblock contacts previously blocked\n" +
                 "- createConversation <participant1> ... <participantN> : create a new conversation\n" +
                 "- leaveConversation <conversationName> : leave a conversation\n" +
+                "- readConversation <conversationName> : read a conversation\n" +
                 "- muteConveration <conversationName> : mute the conversation; you don't receive notification anymore from this conversation\n" +
                 "- unmuteConveration <conversationName> : unmute the conversation previously muted\n" +
                 "- addParticipants <conversationName> <participant1> ... <participantN> : add participants in a conversation\n" +
@@ -44,6 +45,10 @@ public class Terminal {
                 "- disableRing : disable ring\n" +
                 "- activateVibrator : disable vibrator\n" +
                 "- disableVibrator : disable vibrator\n" +
+                "- disableVoiceReader : disable voice reader\n" +
+                "- activateVoiceReader : activate voice reader\n" +
+                "- switchAvailableStatus <status> : switch the available status; possible status : [Available, Occupied, Disconnected]\n" +
+                "- switchTheme <status> : switch the theme; possible themes : [Light, Dark]\n" +
                 "- mute : mute the app\n" +
                 "- quit : quit the application";
         terminalInfo("Controller",info);

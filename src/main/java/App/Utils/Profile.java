@@ -9,7 +9,6 @@ public class Profile {
     String pseudo;
     String picturePath;
     HashSet<Profile> contacts = new HashSet<>();
-    String status;
 
     public Profile(String phoneNumber) {
         this.phoneNumber = phoneNumber;

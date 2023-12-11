@@ -18,6 +18,8 @@ public class Vibrator extends ActivableFeature{
 
     @Override
     public void apply(String information) {
-        System.out.println("----- "+app.user.getName()+" VIBRATING -----");
+        if (activate) {
+            System.out.println("----- "+app.user.getName()+" VIBRATING -----");
+        }
     }
 }

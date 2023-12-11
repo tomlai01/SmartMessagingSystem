@@ -5,6 +5,7 @@ import App.Controller.TerminalController;
 import App.Feature.ActivableFeature.Mute;
 import App.Feature.ActivableFeature.Ring;
 import App.Feature.ActivableFeature.Vibrator;
+import App.Feature.ActivableFeature.VoiceReader;
 import App.Feature.*;
 import App.Utils.Conversation;
 import App.Utils.Message;
@@ -27,10 +28,14 @@ public class App {
     public ContactManager contactManager = new ContactManager(this);
     public ContactSearch contactSearch = new ContactSearch(this);
     public NetworkManager networkManager = new NetworkManager(this);
+    public SwitchableFeatureManager switchableFeatureManager = new SwitchableFeatureManager(this);
     //Activable features
     public Ring ring = new Ring(this);
     public Vibrator vibrator = new Vibrator(this);
     public Mute mute = new Mute(this);
+    public VoiceReader voiceReader = new VoiceReader(this);
+
+
 
     public App(Server server){
         this.server = server;

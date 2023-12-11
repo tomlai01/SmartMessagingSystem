@@ -103,6 +103,24 @@ public class TerminalController extends Controller{
                 case "sendMessage":
                     app.networkManager.sendMessage(app, command);
                     break;
+                case "activateVoiceReader":
+                    app.voiceReader.activate();
+                    break;
+                case "disableVoiceReader":
+                    app.voiceReader.disable();
+                    break;
+                case "switchAvailableStatus":
+                    app.switchableFeatureManager.switchAvailableStatus(app, command);
+                    break;
+                case "switchTheme":
+                    app.switchableFeatureManager.switchTheme(app, command);
+                    break;
+                case "getTheme":
+                    app.switchableFeatureManager.getTheme();
+                    break;
+                case "getAvailableStatus":
+                    app.switchableFeatureManager.getAvailableStatus();
+                    break;
                 case "otherAppSendMessage":
                     app.server.simulation(app, command);
                     break;

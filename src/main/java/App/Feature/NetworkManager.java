@@ -33,7 +33,9 @@ public class NetworkManager extends Feature {
     public void handlePacket(Packet packet) {
         if (!app.contactManager.contactMuted.contains(packet.message.sender)
                 && !app.contactManager.contactBlocked.contains(packet.message.sender)
-                && !app.conversationManager.mutedConversation.contains(packet.conversation)) {
+                && !app.conversationManager.mutedConversation.contains(packet.conversation)
+                && !app.switchableFeatureManager.availableStatus.getState().equals("Occupied")
+                && !app.switchableFeatureManager.availableStatus.getState().equals("Disconnected")) {
             if (packet.message.sender != app.user) {
                 notify(packet);
             }

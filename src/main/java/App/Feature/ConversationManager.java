@@ -117,6 +117,7 @@ public class ConversationManager extends Feature {
         }
         String info = "Messages from "+conversation.getName()+" :\n"+conversation;
         Terminal.terminalInfo(app.user.getName(),info);
+        app.voiceReader.apply(info);
        }
 
     public void muteConversation(App app, String[] command) {

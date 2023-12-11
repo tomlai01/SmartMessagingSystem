@@ -87,12 +87,9 @@ public class Server {
 
     public void deliverMessage(Packet packet) {
         Terminal.serverInfo("Delivery of message from "+packet.message.sender+" to the participants of the conversation "+packet.conversation.getName());
+        packet.conversation.addMessage(packet.message); //add the message in the conversation
+        //notify every participant
         for (Profile participant:packet.conversation.participants) {
-            for (Conversation conversation: conversations.get(participant)) {
-                if (conversation.equals(packet.conversation)) {
-                    conversation.addMessage(packet.message);
-                }
-            }
             App app = apps.getOrDefault(participant, null);
             if (app != null) {
                 apps.get(participant).networkManager.handlePacket(packet);
@@ -115,7 +112,7 @@ public class Server {
             Terminal.serverInfo("You don't have conversation named "+command[2]);
             return;
         }
-        Message message = new Message(profile, new Timestamp(System.currentTimeMillis()), String.join(" ", Arrays.copyOfRange(command,2,command.length)));
+        Message message = new Message(profile, new Timestamp(System.currentTimeMillis()), String.join(" ", Arrays.copyOfRange(command,3,command.length)));
         deliverMessage(new Packet(conversation, message));
     }
 }
