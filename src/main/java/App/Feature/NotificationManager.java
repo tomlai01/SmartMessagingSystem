@@ -1,8 +1,18 @@
 package App.Feature;
 
-public class NotificationManager {
+import App.App;
+import App.Utils.Conversation;
+import App.Utils.Message;
 
-    void popUp(String info) {
-        System.out.println("POP-UP : "+info);
+public class NotificationManager extends Feature {
+
+    public NotificationManager(App app) {
+        super(app);
+    }
+
+
+
+    public void notify(Conversation conversation, Message message) {
+        return;
     }
 }

@@ -1,4 +1,4 @@
-package Controller;
+package App.Controller;
 
 import App.App;
 
@@ -9,7 +9,7 @@ public abstract class Controller {
         this.app = app;
     }
 
-    abstract void register();
+    abstract public void connect();
 
-    abstract void run();
+    abstract public void run();
 }

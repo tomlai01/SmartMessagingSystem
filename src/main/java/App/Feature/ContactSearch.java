@@ -9,7 +9,7 @@ public class ContactSearch extends Feature{
     }
 
     public Profile getContact(String profileName) {
-        for (Profile contact: app.contacts) {
+        for (Profile contact: app.user.getContacts()) {
             if (contact.getName().equals(profileName)) {
                 return contact;
             }
