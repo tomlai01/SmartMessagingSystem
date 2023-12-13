@@ -27,12 +27,10 @@ public class Profile {
 
     public void addContacts(HashSet<Profile> profiles) {
         contacts.addAll(profiles);
-        Terminal.terminalInfo(getName(),profiles+" successfully added as contact");
     }
 
     public void removeContacts(HashSet<Profile> profiles) {
         contacts.removeAll(profiles);
-        Terminal.terminalInfo(getName(), profiles+" successfully removed from your contacts");
     }
 
     public void setPseudo(String pseudo) {

@@ -31,6 +31,7 @@ public class ContactManager extends Feature {
         }
         app.user.addContacts(contacts);
         app.server.addContact(app.user, contacts);
+        Terminal.terminalInfo(app.user.getName(),contacts+" successfully added as contact");
     }
 
     public void removeContacts(App app, String[] command) {
@@ -49,6 +50,7 @@ public class ContactManager extends Feature {
         }
         app.user.addContacts(contacts);
         app.server.removeContact(app.user, contacts);
+        Terminal.terminalInfo(app.user.getName(), contacts+" successfully removed from your contacts");
     }
 
     public void showContactList(App app, String[] command) {
